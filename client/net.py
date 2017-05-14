@@ -85,10 +85,10 @@ class netconn(object):
 		self.stat = 2
 
 	def __recv(self):
-		rdata = ''
+		rdata = bytes()
 
 		while 1:
-			data = ''
+			data = bytes()
 
 			try:
 				data = self.sock.recv(1024)
@@ -109,7 +109,7 @@ class netconn(object):
 
 					return -1
 
-			if data == '':
+			if len(data) == 0:
 				break
 
 			rdata = rdata + data
