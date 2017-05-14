@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+message UserCmd {
+	int32 seqid = 1;
+	int32 cmdid = 2;
+}
+
+message Snapshot {
+	int32 x = 1;
+	int32 y = 2;
+	int32 d = 3;
+	int32 v = 4;
+}
