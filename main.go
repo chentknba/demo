@@ -17,6 +17,7 @@ const (
 	ADDR = ":8000"
 )
 
+
 func main() {
 	ln, err := net.Listen("tcp", ADDR)
 	if err != nil {
@@ -41,11 +42,7 @@ func main() {
 					break
 				}
 
-				log.Printf("header %v\n", header)
-
 				sz := binary.BigEndian.Uint16(header)
-
-				log.Printf("read sz %v\n", sz)
 
 				payload := make([]byte, sz)
 
@@ -54,7 +51,6 @@ func main() {
 					break
 				}
 
-				log.Printf("read pay load %v\n", payload)
 
 				snp := &pb.Snapshot{}
 

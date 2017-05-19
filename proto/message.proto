@@ -2,6 +2,20 @@ syntax = "proto3";
 
 package proto;
 
+message Message {
+    int32 type = 1;
+    string name = 2;
+    bytes data = 3;
+}
+
+message CS_Login {
+}
+
+message SC_Login {
+    int32 cid = 1; // 服务器分配的id
+}
+
+
 message UserCmd {
 	int32 seqid = 1;
 	int32 cmdid = 2;

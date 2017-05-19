@@ -157,12 +157,25 @@ class cclient(object):
 			msg = snapshot.SerializeToString()
 			self.client.send(msg)
 
+                while 1:
+                    data = self.client.recv()
+                    if len(data) == 0:
+                        break
+
+                    if len(data) < 2:
+                        continue
+
+                    msg = message_pb2.Message()
+                    msg.ParseFromString(data)
+
+                    print(msg)
+
 	def render(self):
 		update_star()
 		self.craft.draw_craft()
 
 	def process(self):
-		# net process
+		# read, write net msg
 		self.client.process()
 
 		# input process

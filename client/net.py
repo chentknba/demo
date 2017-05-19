@@ -75,7 +75,7 @@ class netconn(object):
 
 			if code in self.errd:
 				self.stat = 2
-				self.rbuf = ''
+				self.rbuf = bytes()
 
 				return 1
 
@@ -148,7 +148,7 @@ class netconn(object):
 	def rawpeek(self, size):
 		self.process()
 		if len(self.rbuf) == 0:
-			return ''
+			return bytes()
 		
 		if size > len(self.rbuf):
 			size = len(self.rbuf)
@@ -163,6 +163,19 @@ class netconn(object):
 		self.rbuf = self.rbuf[size:]
 
 		return rdata
+
+        def recv(self):
+            data = rawpeek(2)
+            if len(data) < 2:
+                return bytes()
+
+            sz = struct.unpack(">H", data)
+            if len(self.rbuf) < sz[0]:
+                return bytes()
+
+            self.rawrecv(2)
+
+            return self.rawrecv(sz[0] - 2)
 
 # test
 if __name__ == '__main__':
