@@ -157,18 +157,18 @@ class cclient(object):
 			msg = snapshot.SerializeToString()
 			self.client.send(msg)
 
-                while 1:
-                    data = self.client.recv()
-                    if len(data) == 0:
-                        break
+			while 1:
+				data = self.client.recv()
+				if len(data) == 0:
+					break
 
-                    if len(data) < 2:
-                        continue
+				if len(data) < 2:
+					continue
 
-                    msg = message_pb2.Message()
-                    msg.ParseFromString(data)
+				#msg = message_pb2.Message()
+				#msg.ParseFromString(data)
 
-                    print(msg)
+				#print(msg)
 
 	def render(self):
 		update_star()

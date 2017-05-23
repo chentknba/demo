@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='message.proto',
   package='proto',
   syntax='proto3',
-  serialized_pb=_b('\n\rmessage.proto\x12\x05proto\"3\n\x07Message\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\"\'\n\x07UserCmd\x12\r\n\x05seqid\x18\x01 \x01(\x05\x12\r\n\x05\x63mdid\x18\x02 \x01(\x05\"6\n\x08Snapshot\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\t\n\x01\x64\x18\x03 \x01(\x05\x12\t\n\x01v\x18\x04 \x01(\x05\x62\x06proto3')
+  serialized_pb=_b('\n\rmessage.proto\x12\x05proto\"3\n\x07Message\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\"\n\n\x08\x43S_Login\"\x17\n\x08SC_Login\x12\x0b\n\x03\x63id\x18\x01 \x01(\x05\"\'\n\x07UserCmd\x12\r\n\x05seqid\x18\x01 \x01(\x05\x12\r\n\x05\x63mdid\x18\x02 \x01(\x05\"6\n\x08Snapshot\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\t\n\x01\x64\x18\x03 \x01(\x05\x12\t\n\x01v\x18\x04 \x01(\x05\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -71,6 +71,61 @@ _MESSAGE = _descriptor.Descriptor(
 )
 
 
+_CS_LOGIN = _descriptor.Descriptor(
+  name='CS_Login',
+  full_name='proto.CS_Login',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=77,
+  serialized_end=87,
+)
+
+
+_SC_LOGIN = _descriptor.Descriptor(
+  name='SC_Login',
+  full_name='proto.SC_Login',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cid', full_name='proto.SC_Login.cid', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=89,
+  serialized_end=112,
+)
+
+
 _USERCMD = _descriptor.Descriptor(
   name='UserCmd',
   full_name='proto.UserCmd',
@@ -104,8 +159,8 @@ _USERCMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=77,
-  serialized_end=116,
+  serialized_start=114,
+  serialized_end=153,
 )
 
 
@@ -156,11 +211,13 @@ _SNAPSHOT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=118,
-  serialized_end=172,
+  serialized_start=155,
+  serialized_end=209,
 )
 
 DESCRIPTOR.message_types_by_name['Message'] = _MESSAGE
+DESCRIPTOR.message_types_by_name['CS_Login'] = _CS_LOGIN
+DESCRIPTOR.message_types_by_name['SC_Login'] = _SC_LOGIN
 DESCRIPTOR.message_types_by_name['UserCmd'] = _USERCMD
 DESCRIPTOR.message_types_by_name['Snapshot'] = _SNAPSHOT
 
@@ -170,6 +227,20 @@ Message = _reflection.GeneratedProtocolMessageType('Message', (_message.Message,
   # @@protoc_insertion_point(class_scope:proto.Message)
   ))
 _sym_db.RegisterMessage(Message)
+
+CS_Login = _reflection.GeneratedProtocolMessageType('CS_Login', (_message.Message,), dict(
+  DESCRIPTOR = _CS_LOGIN,
+  __module__ = 'message_pb2'
+  # @@protoc_insertion_point(class_scope:proto.CS_Login)
+  ))
+_sym_db.RegisterMessage(CS_Login)
+
+SC_Login = _reflection.GeneratedProtocolMessageType('SC_Login', (_message.Message,), dict(
+  DESCRIPTOR = _SC_LOGIN,
+  __module__ = 'message_pb2'
+  # @@protoc_insertion_point(class_scope:proto.SC_Login)
+  ))
+_sym_db.RegisterMessage(SC_Login)
 
 UserCmd = _reflection.GeneratedProtocolMessageType('UserCmd', (_message.Message,), dict(
   DESCRIPTOR = _USERCMD,

@@ -164,18 +164,18 @@ class netconn(object):
 
 		return rdata
 
-        def recv(self):
-            data = rawpeek(2)
-            if len(data) < 2:
-                return bytes()
+	def recv(self):
+		data = self.rawpeek(2)
+		if len(data) < 2:
+			return bytes()
 
-            sz = struct.unpack(">H", data)
-            if len(self.rbuf) < sz[0]:
-                return bytes()
+		sz = struct.unpack(">H", data)
+		if len(self.rbuf) < sz[0]:
+			return bytes()
 
-            self.rawrecv(2)
+		self.rawrecv(2)
 
-            return self.rawrecv(sz[0] - 2)
+		return self.rawrecv(sz[0] - 2)
 
 # test
 if __name__ == '__main__':
